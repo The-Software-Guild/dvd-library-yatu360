@@ -17,11 +17,24 @@ public class DVDView {
         io.print("Main Menu");
         io.print("1. List all DVDs");
         io.print("2. Add new DVD");
-        io.print("3. View a DVD");
-        io.print("4. Remove a DVD");
-        io.print("5. Exit");
+        io.print("3. Edit DVD");
+        io.print("4. View a DVD");
+        io.print("5. Remove a DVD");
+        io.print("6. Exit");
 
-        return io.readInt("Please select from the above choices.", 1, 5);
+        return io.readInt("Please select from the above choices.", 1, 6);
+    }
+
+    public int printEditMenuAndGetSelection() {
+        io.print("Which field do you want to change?");
+        io.print("Edit DVD menu");
+        io.print("1. Release date");
+        io.print("2. MPAA rating");
+        io.print("3. Director's name");
+        io.print("4. User rating");
+        io.print("5. Studio name");
+        io.print("6. Exit edit menu");
+        return io.readInt("Please select from the above choices.", 1,6);
     }
 
     public DVD getNewDVDInfo(){
@@ -101,12 +114,53 @@ public class DVDView {
         io.print("=== Remove DVD ===");
     }
 
+    public void displayErrorMessage(String errorMsg) {
+        io.print("=== ERROR ===");
+        io.print(errorMsg);
+    }
+
+    public void displayEditDvdBanner() {
+        io.print("=== Edit DVD ===");
+    }
+
+    public void displayEditReleaseDateBanner() {
+        io.print("=== Edit DVD Release Date ===");
+    }
+
     public void displayExitBanner() {
         io.print("Good Bye!!!");
     }
 
+    public LocalDate getReleaseDate() {
+        return io.readDate("Please enter the new DVD release date.");
+    }
+
+    public void displayEditResult(){
+        io.print("DVD Successfully edited.");
+    }
+
+    public String getMpaaRating() {
+        return io.readString("Please enter the new DVD MPAA rating.");
+    }
+
+    public String getDirectorName() {
+        return io.readString("Please enter the new director's name.");
+    }
+
+    public String getUserRating() {
+        return io.readString("Please enter the new user rating.");
+    }
+
+    public String getStudioName() {
+        return io.readString("Please enter the studio name.");
+    }
+
     public void displayUnknownCommandBanner() {
         io.print("Unknown Command!!!");
+    }
+
+    public void displayNullDvd(){
+        io.print("No such DVD");
     }
 
 }

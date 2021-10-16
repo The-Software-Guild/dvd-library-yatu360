@@ -32,7 +32,7 @@ public class DVD {
     }
 
     public void setMPAARating(String MPAARating) {
-        this.MPAARating = MPAARating;
+        if (MPAARating != null) this.MPAARating = MPAARating;
     }
 
     public String getDirectorName() {
